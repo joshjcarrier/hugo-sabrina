@@ -1,0 +1,37 @@
+{{ define "title" }}
+{{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+
+<div class="center" itemscope itemtype="http://schema.org/Recipe">
+  <article class="">
+    <header class="tc ttu">
+      <h1 class="f1 measure center" itemprop="name">{{ .Title }}</h1>
+      <h3 class="f3 measure center">{{ .Params.Subtitle }}</h3>
+    </header>
+
+    <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column">
+      <div class="h-100-l order-1-l order-2 flex-grow-1 pv4 pl6">
+        {{ range .Params.Components }}
+        {{ partial "recipes/method_item" . }}
+        {{ end }}
+
+        {{ partial "recipes/method_item" .Params }}
+      </div>
+      <div class="h-100-l order-2-l order-1 flex-grow-1 pa4">
+        {{ range .Params.Components }}
+        {{ partial "recipes/ingredients_item" . }}
+        {{ end }}
+
+        {{ partial "recipes/ingredients_item" .Params }}
+      </div>
+    </div>
+
+    <div class="center">
+      <div class="tc" itemprop="description">{{.Content}}</div>
+    </div>
+  </article>
+</div>
+
+{{ partialCached "recipes/glossary" . }}
+{{ end}}

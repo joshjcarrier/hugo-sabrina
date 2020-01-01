@@ -1,0 +1,12 @@
+name = "Sabrina"
+license = "MIT"
+licenselink = "https://github.com/joshjcarrier/hugo-sabrina/blob/master/LICENSE"
+description = ""
+homepage = "https://joshjcarrier.github.io/"
+tags = ["recipes", "cooking", "responsive", "clean"]
+features = []
+min_version = "0.41"
+
+[author]
+  name = "Josh Carrier"
+  homepage = "https://joshjcarrier.github.io/"
