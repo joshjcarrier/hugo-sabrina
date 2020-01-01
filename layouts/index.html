@@ -1,3 +1,1 @@
-{{ define "content" }}
-{{ partial "home.html" . }}
-{{ end }}
+{{ with .Site.GetPage "/recipes" }}{{ .Render "list" }}{{ end }}

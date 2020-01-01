@@ -10,11 +10,12 @@
   terms.forEach(t => {
     instance.mark(t["name"], {
       element: "span",
-      className: "strike mr2",
+      className: "",
       separateWordSearch: false,
       each: (markAnchor) => {
         var span = document.createElement('span');
-        span.innerText = "-> " + t["translation"];
+        span.className = "handwrite"
+        span.innerText = " (" + t["translation"] + ")";
         markAnchor.insertAdjacentElement("afterend", span)
       }
     });
