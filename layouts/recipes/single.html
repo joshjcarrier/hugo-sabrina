@@ -12,15 +12,15 @@
 
     </header>
 
-    <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column">
-      <div class="h-100-l order-1-l order-2 flex-grow-1 pv4 pl6">
+    <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column justify-center">
+      <div class="h-100-l order-1-l order-2 ph4 pb4">
         {{ range .Params.Subcomponents }}
         {{ partial "recipes/method_item" . }}
         {{ end }}
 
         {{ partial "recipes/method_item" .Params }}
       </div>
-      <div class="h-100-l order-2-l order-1 flex-grow-1 pa4">
+      <div class="w-30-l h-100-l order-2-l order-1 ph4 pb4">
         {{ range .Params.Subcomponents }}
         {{ partial "recipes/ingredients_item" . }}
         {{ end }}
@@ -29,10 +29,10 @@
       </div>
     </div>
 
-    <div class="tc center">
+    <div class="tc center pa3">
       <div class="tc" itemprop="description">{{.Content}}</div>
 
-      <img src="{{ .Params.sourceIMG | absURL }}" class="w-100 tc dib br4 dib measure f3"
+      <img src="{{ .Params.sourceIMG | relURL }}" class="w-100 tc dib br4 dib measure f3"
         style=" filter: grayscale(100%);" />
     </div>
   </article>
