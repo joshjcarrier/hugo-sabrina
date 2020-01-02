@@ -6,8 +6,10 @@
       <h1 class="f1 measure center" itemprop="name">{{ .Title }}</h1>
       <h3 class="f3 measure center">{{ .Params.Subtitle }}</h3>
       <h3 class="f3 measure center">********************</h3>
-
     </header>
+
+    {{ if in .Params.tags "Excellent" }}<h2 class="absolute top-0 right-0 pt4 pr4 pr7-l handwrite f2"
+      style="transform: rotate(10deg);">excellent!</h2>{{ end }}
 
     <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column justify-center">
       <div class="h-100-l order-1-l order-2 ph4 pb4">

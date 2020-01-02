@@ -8,7 +8,10 @@
     <div class="fn fl-ns w-70-ns">
       <dl class="lh-title pb4 mt0 ttu">
         {{ range .Pages }}
-        <dt class="f4 b"> <a href="{{.Permalink}}" class="link black hover-bg-light-yellow">{{.Title}}</a></dt>
+        <dt class="f4 b"> <a href="{{.Permalink}}" class="link black hover-bg-light-yellow">{{.Title}}</a>
+          {{ if in .Params.tags "Excellent" }}
+          <span class="handwrite ttl f3">excellent!</span>
+          {{ end }}</dt>
         <dd class="ml0 pb3">{{.Params.Subtitle}}</dd>
         {{ end }}
 
