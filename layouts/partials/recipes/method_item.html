@@ -1,9 +1,10 @@
 {{ if ne .directions nil }}
 <h4 class="f4 measure underline">{{ .title }}</h4>
-<ol class="sm-col sm-col-6 lg-col-6" itemprop="recipeInstructions">
+<ol class="sm-col sm-col-6 lg-col-6 pb2" itemprop="recipeInstructions">
   {{ range .directions }}
-  <li class="measure mb4">
-    {{ with ( . | markdownify) }}{{ . }}{{ end }}</li>
+  <li class="measure mb4" onclick="this.classList.toggle('strike');">
+    {{ with ( . | markdownify) }}{{ . }}{{ end }}
+  </li>
   {{ end }}
 </ol>
 {{end}}

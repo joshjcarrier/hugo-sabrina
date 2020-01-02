@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+<title>{{ block "title" . }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 
 <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/liberation-mono" type="text/css" />
@@ -15,6 +15,20 @@
     font-family: 'LiberationMonoRegular';
     font-weight: normal;
     font-style: normal;
+  }
+
+  @media print {
+    .noprint {
+      visibility: collapse;
+    }
+  }
+
+  .handedit {
+    font-family: 'DancingScriptRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: red;
   }
 
   .handwrite {

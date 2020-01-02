@@ -1,6 +1,3 @@
-{{ define "title" }}
-{{ .Title }} · {{ .Site.Title }}
-{{ end }}
 {{ define "content" }}
 
 <div class="center" itemscope itemtype="http://schema.org/Recipe">
@@ -32,7 +29,7 @@
     <div class="tc center pa3">
       <div class="tc" itemprop="description">{{.Content}}</div>
 
-      <img src="{{ .Params.sourceIMG | relURL }}" class="w-100 tc dib br4 dib measure f3"
+      <img src="{{ .Params.sourceIMG | relURL }}" class="w-100 tc dib br4 dib measure f3 noprint"
         style=" filter: grayscale(100%);" />
     </div>
   </article>
