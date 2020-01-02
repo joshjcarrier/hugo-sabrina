@@ -1,0 +1,25 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"
+  integrity="sha256-IdYuEFP3WJ/mNlzM18Y20Xgav3h5pgXYzl8fW4GnuPo=" crossorigin="anonymous"></script>
+
+<script>
+  (function() {
+    var terms = {{ jsonify .Site.Data.glossary | safeJS }};
+
+    var context = document.querySelector("#content");
+    var instance = new Mark(context);
+
+    terms.forEach(t => {
+      instance.mark(t["name"], {
+        element: "span",
+        className: "",
+        separateWordSearch: false,
+        each: (markAnchor) => {
+          var span = document.createElement('span');
+          span.className = "handwrite f4"
+          span.innerText = " (" + t["translation"] + ")";
+          markAnchor.insertAdjacentElement("afterend", span)
+        }
+      });
+    });
+  })();
+</script>
