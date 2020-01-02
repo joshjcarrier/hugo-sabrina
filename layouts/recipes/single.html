@@ -11,6 +11,8 @@
     {{ if in .Params.tags "Excellent" }}<h2
       class="absolute top--2 top--1-l right-0 pt4 pr4 pr7-l handwrite crooked-2 f2">excellent!</h2>{{ end }}
 
+
+
     <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column justify-center">
       <div class="h-100-l order-1-l order-2 ph4 pb4">
         {{ range .Params.Subcomponents }}
@@ -27,6 +29,14 @@
         {{ partial "recipes/ingredients_item" .Params }}
       </div>
     </div>
+
+    {{ if ne .Params.image nil }}
+    <div class="absolute top-2 right--2 noprint" style="transform:rotate(5deg)" onclick="this.className='dn'">
+      <div class="w-90 br3 fr" style="line-height: 0;background-image:url('{{ .Params.image | relURL }}')">
+        <img src="{{ relURL "/images/polaroid_overlay.png" }}" class="w-100 dib  br3 measure f3" />
+      </div>
+    </div>
+    {{ end }}
 
     <div class="tc center pa3">
       <div class="tc" itemprop="description">{{.Content}}</div>
