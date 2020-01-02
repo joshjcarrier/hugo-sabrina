@@ -10,7 +10,9 @@
         {{ range .Pages }}
         <dt class="f4 b"> <a href="{{.Permalink}}" class="link black hover-bg-light-yellow">{{.Title}}</a>
           {{ if in .Params.tags "Excellent" }}
-          <span class="handwrite ttl f3">excellent!</span>
+          <span class="relative pl3">
+            <span class="handwrite crooked-1 ttl f3" style="top: -0.5rem">excellent!</span>
+          </span>
           {{ end }}</dt>
         <dd class="ml0 pb3">{{.Params.Subtitle}}</dd>
         {{ end }}

@@ -1,14 +1,24 @@
+{{ if eq .layout nil }}
 <h4 class="f5 measure underline">{{ .title }}</h4>
+{{ end }}
+{{ if ne .layout nil }}
+{{ if eq .subcomponents nil }}
+<h4 class="f4 measure underline">Ingredients</h4>
+{{ end }}
+{{ if ne .subcomponents nil }}
+<h4 class="f5 measure underline">{{ .title }}</h4>
+{{ end }}
+{{ end }}
 <div class="sm-col sm-col-6 lg-col-6 pb2">
   <ul itemprop="ingredients">
     {{ if ne .subcomponents nil }}
     {{ range .subcomponents }}
-    <li itemprop="recipeIngredient" class="underline">
+    <li itemprop="recipeIngredient" class="underline pv1">
       {{ with ( .title | markdownify) }}{{ . }}{{ end }}</li>
     {{ end }}
     {{ end }}
     {{ range .ingredients }}
-    <li itemprop="recipeIngredient">
+    <li itemprop="recipeIngredient" class="pv1">
       {{ with ( . | markdownify) }}{{ . }}{{ end }}</li>
     {{ end }}
   </ul>

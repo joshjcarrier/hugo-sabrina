@@ -1,5 +1,17 @@
 {{ if ne .directions nil }}
-<h4 class="f4 measure underline">{{ .title }}</h4>
+
+{{ if eq .layout nil }}
+<h4 class="f5 measure underline">{{ .title }}</h4>
+{{ end }}
+{{ if ne .layout nil }}
+{{ if eq .subcomponents nil }}
+<h4 class="f4 measure underline">Method</h4>
+{{ end }}
+{{ if ne .subcomponents nil }}
+<h4 class="f5 measure underline">{{ .title }}</h4>
+{{ end }}
+{{ end }}
+
 <ol class="sm-col sm-col-6 lg-col-6 pb2" itemprop="recipeInstructions">
   {{ range .directions }}
   <li class="measure mb4" onclick="this.classList.toggle('strike');">
