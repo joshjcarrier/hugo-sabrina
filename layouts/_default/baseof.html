@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html>
-{{- partial "head.html" . -}}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/liberation-mono" type="text/css" />
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/dancing" type="text/css" />
+
+<style>
+    html,
+    button,
+    input,
+    select,
+    textarea {
+        font-family: 'LiberationMonoRegular';
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @media print {
+        .noprint {
+            visibility: collapse;
+        }
+    }
+
+    .handedit {
+        font-family: 'DancingScriptRegular';
+        font-weight: normal;
+        font-style: normal;
+        color: red;
+    }
+
+    .handwrite {
+        font-family: 'DancingScriptRegular';
+        font-weight: normal;
+        font-style: normal;
+        color: blue;
+    }
+
+    .crooked-1 {
+        position: absolute;
+        transform: rotate(5deg);
+    }
+
+    .crooked-2 {
+        position: absolute;
+        transform: rotate(10deg);
+    }
+</style>
 
 <body>
     {{- partial "header.html" . -}}
