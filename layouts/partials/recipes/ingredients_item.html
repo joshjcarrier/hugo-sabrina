@@ -18,7 +18,7 @@
     {{ end }}
     {{ end }}
     {{ range .ingredients }}
-    <li itemprop="recipeIngredient" class="pv1">
+    <li itemprop="recipeIngredient" class="translatable pv1">
       {{ with ( . | markdownify) }}{{ . }}{{ end }}</li>
     {{ end }}
   </ul>

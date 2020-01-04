@@ -14,7 +14,7 @@
 
 <ol class="sm-col sm-col-6 lg-col-6 pb2" itemprop="recipeInstructions">
   {{ range .directions }}
-  <li class="measure mb4" onclick="this.classList.toggle('strike');">
+  <li class="translatable measure mb4" onclick="this.classList.toggle('strike');">
     {{ with ( . | markdownify) }}{{ . }}{{ end }}
   </li>
   {{ end }}
