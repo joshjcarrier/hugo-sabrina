@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "LiberationMonoBold";
+  src: url("LiberationMonoBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LiberationMonoBoldItalic";
+  src: url("LiberationMonoBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LiberationMonoItalic";
+  src: url("LiberationMonoItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LiberationMonoRegular";
+  src: url("LiberationMonoRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* The following rules are deprecated. */
+
+@font-face {
+  font-family: "Liberation Mono";
+  src: url("LiberationMonoBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Liberation Mono";
+  src: url("LiberationMonoBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Liberation Mono";
+  src: url("/assets/fonts/liberation-mono/11a293dd1d3aa61fdd1d6c81fdd6ed4a/fe730bd81edbfb8e5e6430c410212f4e/LiberationMonoItalic.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Liberation Mono";
+  src: url("/assets/fonts/liberation-mono/11a293dd1d3aa61fdd1d6c81fdd6ed4a/50e5bfa4278f8f70f3b27d8d7186c202/LiberationMonoRegular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

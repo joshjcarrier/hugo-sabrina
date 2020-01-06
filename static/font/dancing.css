@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "DancingScriptBold";
+  src: url("DancingScriptBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DancingScriptOTRegular";
+  src: url("DancingScriptOTRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DancingScriptRegular";
+  src: url("DancingScriptRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* The following rules are deprecated. */
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("DancingScriptBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dancing Script OT";
+  src: url("DancingScriptOTRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dancing Script";
+  src: url("DancingScriptRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

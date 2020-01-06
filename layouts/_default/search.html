@@ -1,0 +1,106 @@
+{{ define "content" }}
+<main>
+  <article class="cf ph3 ph5-ns pv5">
+    <header class="fn fl-ns w-30-ns pr4-ns">
+      <h1 class="mb3 mt0 lh-title ttu">Search</h1>
+    </header>
+    <div class="fn fl-ns w-70-ns">
+      <dl class="lh-title pb4 mt0 ttu">
+        <div id="search-results"></div>
+
+      </dl>
+    </div>
+  </article>
+</main>
+
+
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.Pages "Layout" "recipe" -}}
+{{- $scratch := newScratch -}}
+{{- $scratch.Add "ingredients" .Params.Ingredients -}}
+{{- range .Params.Subcomponents -}}
+{{- $scratch.Add "ingredients" .ingredients -}}
+{{- end -}}
+{{- $.Scratch.Add "index" (dict "title" .Title "subtitle" .Params.Subtitle "tags" .Params.tags "category" .Params.category "cuisine" .Params.cuisine "contents" .Plain "permalink" .Permalink "sourceLocation" .Params.sourceLocation "ingredients" ($scratch.Get "ingredients")) -}}
+{{- end -}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>
+<script id="search-result-template" type="text/x-js-template">
+  <dt class="f4 b"> <a href="${permalink}" class="link black hover-bg-light-yellow">${title}
+    #${sourceLocation}</a>
+</dt>
+  <dd class="ml0 pb3">${subtitle}</dd>
+</script>
+<script>
+  (function () {
+    // https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae
+    function render(templateString, data) {
+      var conditionalMatches, conditionalPattern, copy;
+      conditionalPattern = /\$\{\s*isset ([a-zA-Z]*) \s*\}(.*)\$\{\s*end\s*}/g;
+      //since loop below depends on re.lastInxdex, we use a copy to capture any manipulations whilst inside the loop
+      copy = templateString;
+      while ((conditionalMatches = conditionalPattern.exec(templateString)) !== null) {
+        if (data[conditionalMatches[1]]) {
+          //valid key, remove conditionals, leave contents.
+          copy = copy.replace(conditionalMatches[0], conditionalMatches[2]);
+        } else {
+          //not valid, remove entire section
+          copy = copy.replace(conditionalMatches[0], '');
+        }
+      }
+      templateString = copy;
+      //now any conditionals removed we can do simple substitution
+      var key, find, re;
+      for (key in data) {
+        find = '\\$\\{\\s*' + key + '\\s*\\}';
+        re = new RegExp(find, 'g');
+        templateString = templateString.replace(re, data[key]);
+      }
+      return templateString;
+    }
+
+    var pages = {{- $.Scratch.Get "index" | jsonify | safeJS -}};
+
+  var summaryInclude = 60;
+  var fuseOptions = {
+    shouldSort: true,
+    includeMatches: true,
+    threshold: 0.0,
+    tokenize: true,
+    location: 0,
+    distance: 100,
+    maxPatternLength: 32,
+    minMatchCharLength: 1,
+    keys: [
+      { name: "title", weight: 0.8 },
+      { name: "ingredients", weight: 0.7 },
+      { name: "category", weight: 0.5 },
+      { name: "cuisine", weight: 0.5 },
+      { name: "subtitle", weight: 0.5 },
+      { name: "tags", weight: 0.5 },
+      { name: "contents", weight: 0.3 },
+    ]
+  };
+
+  var urlParams = new URLSearchParams(window.location.search);
+
+  var searchQuery = urlParams.get('q');
+
+  var fuse = new Fuse(pages, fuseOptions);
+  var results = fuse.search(searchQuery);
+  var searchResultTemplate = document.getElementById('search-result-template').innerHTML;
+
+  if (results.length > 0) {
+    results.forEach(result => {
+      var searchResultHtml = render(searchResultTemplate, result.item);
+      document.getElementById("search-results").insertAdjacentHTML('beforeend', searchResultHtml);
+    });
+  }
+  else {
+    document.getElementById("search-results").append("No recipes match.");
+  }
+  
+  }) ();
+
+</script>
+{{ end }}

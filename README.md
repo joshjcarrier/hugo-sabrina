@@ -11,6 +11,8 @@ A theme for [Hugo](https://gohugo.io/) based on the simple, organic feel of a mo
 
 ## Recipe
 
+Create `.md` files in `content/`. Images go in `static/`.
+
 ```yml
 ---
 layout: recipe
@@ -58,3 +60,32 @@ directions:
 ---
 
 ```
+
+## Glossary
+
+Edit `data/glossary.yml`
+
+```yml
+- title: Something foreign
+  translation: Something understandable
+- title: Something else foreign
+  translation: Something else understandable
+```
+
+## Enabling search
+
+- Add a file in `content/search.html`
+
+```html
+---
+title: "Search"
+sitemap:
+  priority: 0.1
+layout: "search"
+---
+```
+
+## License
+
+- [Liberation Mono font](https://fontlibrary.org/en/font/liberation-mono)
+- [Dancing script font](https://fontlibrary.org/en/font/dancing)

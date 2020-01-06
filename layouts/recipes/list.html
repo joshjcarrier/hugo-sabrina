@@ -1,7 +1,11 @@
 {{ define "content" }}
 <main>
+  <form class="tc noprint" action="{{ "search" | absURL }}">
+    <input id="search-query" name="q" placeholder="Search" class="f2" />
+  </form>
+
   <article class="cf ph3 ph5-ns pv5">
-    {{ range .Pages.GroupByParam "Category" }}
+    {{ range (where .Pages "Layout" "recipe").GroupByParam "Category" }}
     <header class="fn fl-ns w-30-ns pr4-ns">
       <h1 class="mb3 mt0 lh-title ttu">{{ .Key }}</h1>
     </header>

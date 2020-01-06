@@ -5,8 +5,8 @@
 <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
 <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/liberation-mono" type="text/css" />
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/dancing" type="text/css" />
+<link rel="stylesheet" media="screen" href="{{ absURL "font/liberation-mono.css" }}" type="text/css" />
+<link rel="stylesheet" media="screen" href="{{ absURL "font/dancing.css" }}" type="text/css" />
 
 <style>
     html,
