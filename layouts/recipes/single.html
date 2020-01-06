@@ -45,8 +45,12 @@
     <div class="tc center pa3">
       <div class="tc" itemprop="description">{{.Content}}</div>
 
-      <img src="{{ .Params.sourceIMG | relURL }}" class="w-100 tc dib br4 dib measure f3 noprint"
-        style=" filter: grayscale(100%);" />
+      {{ range (split .Params.sourceIMG ",") }}
+      <a href="{{ relURL . }}" target="_blank" class="bn">
+        <img src="{{ relURL . }}" class="w-100 tc dib br4 dib measure f3 noprint" style=" filter: grayscale(100%);" />
+      </a>
+      <br />
+      {{ end }}
     </div>
   </article>
 </div>
